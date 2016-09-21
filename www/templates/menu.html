@@ -1,0 +1,21 @@
+ <ion-side-menu enable-menu-with-back-views = 'true'>
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-dark">
+            <ion-nav-button side="left">
+                <button class = "button button-icon button-clear ion-navicon-round" menu-toggle = "left"/>
+            </ion-nav-button>
+        </ion-nav-bar>
+        <ion-nav-view name = "side-menu"></ion-nav-view>
+    </ion-side-menu-content>
+        <ion-side-menu side = "left" id = "side-menu">
+        <ion-header-bar class = "bar possitive">
+            <div class = "title"> Menú </div>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list menu-close>
+                <ion-item href = "#/menu/page"> Inicio </ion-item>
+                <ion-item href = "#/menu/acerca"> Acerca de </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menu>

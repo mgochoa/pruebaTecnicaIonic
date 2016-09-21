@@ -1,0 +1,224 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'angular-messages' ]
+2 info using npm@2.15.9
+3 info using node@v4.5.0
+4 verbose install initial load of C:\Integrador\pruebaTecnica\package.json
+5 warn package.json pruebatecnica@1.1.1 No repository field.
+6 warn package.json pruebatecnica@1.1.1 No README data
+7 warn package.json pruebatecnica@1.1.1 No license field.
+8 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\bluebird\package.json
+9 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\bower\package.json
+10 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\gulp\package.json
+11 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\gulp-concat\package.json
+12 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\gulp-minify-css\package.json
+13 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\gulp-rename\package.json
+14 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\gulp-sass\package.json
+15 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\gulp-util\package.json
+16 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\rxjs\package.json
+17 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\shelljs\package.json
+18 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\zone.js\package.json
+19 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\@angular\core\package.json
+20 verbose installManyTop reading scoped package data from C:\Integrador\pruebaTecnica\node_modules\@ionic\cloud-angular\package.json
+21 info package.json shelljs@0.3.0 license should be a valid SPDX license expression
+22 info package.json @angular/core@2.0.0-rc.4 No description
+23 info package.json @angular/core@2.0.0-rc.4 No README data
+24 info package.json gulp-rename@1.2.2 No license field.
+25 info package.json gulp-util@2.2.20 No license field.
+26 info package.json gulp-minify-css@0.3.13 No license field.
+27 verbose readDependencies loading dependencies from C:\Integrador\pruebaTecnica\package.json
+28 silly cache add args [ 'angular-messages', null ]
+29 verbose cache add spec angular-messages
+30 silly cache add parsed spec Result {
+30 silly cache add   raw: 'angular-messages',
+30 silly cache add   scope: null,
+30 silly cache add   name: 'angular-messages',
+30 silly cache add   rawSpec: '',
+30 silly cache add   spec: 'latest',
+30 silly cache add   type: 'tag' }
+31 silly addNamed angular-messages@latest
+32 verbose addNamed "latest" is being treated as a dist-tag for angular-messages
+33 info addNameTag [ 'angular-messages', 'latest' ]
+34 silly mapToRegistry name angular-messages
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry data Result {
+37 silly mapToRegistry   raw: 'angular-messages',
+37 silly mapToRegistry   scope: null,
+37 silly mapToRegistry   name: 'angular-messages',
+37 silly mapToRegistry   rawSpec: '',
+37 silly mapToRegistry   spec: 'latest',
+37 silly mapToRegistry   type: 'tag' }
+38 silly mapToRegistry uri https://registry.npmjs.org/angular-messages
+39 verbose addNameTag registry:https://registry.npmjs.org/angular-messages not in flight; fetching
+40 verbose request uri https://registry.npmjs.org/angular-messages
+41 verbose request no auth needed
+42 info attempt registry request try #1 at 18:15:54
+43 verbose request id d7094bfd078c1238
+44 http request GET https://registry.npmjs.org/angular-messages
+45 http 200 https://registry.npmjs.org/angular-messages
+46 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+46 verbose headers   etag: '"B6MC8W3R0D2UUSJO6JNVS4P2N"',
+46 verbose headers   'content-type': 'application/json',
+46 verbose headers   'content-encoding': 'gzip',
+46 verbose headers   'cache-control': 'max-age=300',
+46 verbose headers   'content-length': '9426',
+46 verbose headers   'accept-ranges': 'bytes',
+46 verbose headers   date: 'Tue, 20 Sep 2016 23:16:28 GMT',
+46 verbose headers   via: '1.1 varnish',
+46 verbose headers   age: '0',
+46 verbose headers   connection: 'keep-alive',
+46 verbose headers   'x-served-by': 'cache-atl6220-ATL',
+46 verbose headers   'x-cache': 'MISS',
+46 verbose headers   'x-cache-hits': '0',
+46 verbose headers   'x-timer': 'S1474413388.229897,VS0,VE82',
+46 verbose headers   vary: 'Accept-Encoding' }
+47 silly get cb [ 200,
+47 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+47 silly get     etag: '"B6MC8W3R0D2UUSJO6JNVS4P2N"',
+47 silly get     'content-type': 'application/json',
+47 silly get     'content-encoding': 'gzip',
+47 silly get     'cache-control': 'max-age=300',
+47 silly get     'content-length': '9426',
+47 silly get     'accept-ranges': 'bytes',
+47 silly get     date: 'Tue, 20 Sep 2016 23:16:28 GMT',
+47 silly get     via: '1.1 varnish',
+47 silly get     age: '0',
+47 silly get     connection: 'keep-alive',
+47 silly get     'x-served-by': 'cache-atl6220-ATL',
+47 silly get     'x-cache': 'MISS',
+47 silly get     'x-cache-hits': '0',
+47 silly get     'x-timer': 'S1474413388.229897,VS0,VE82',
+47 silly get     vary: 'Accept-Encoding' } ]
+48 verbose get saving angular-messages to C:\Users\Manuel Ochoa Loaiza\AppData\Roaming\npm-cache\registry.npmjs.org\angular-messages\.cache.json
+49 verbose correctMkdir C:\Users\Manuel Ochoa Loaiza\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+50 silly addNameTag next cb for angular-messages with tag latest
+51 silly addNamed angular-messages@1.5.8
+52 verbose addNamed "1.5.8" is a plain semver version for angular-messages
+53 silly mapToRegistry name angular-messages
+54 silly mapToRegistry using default registry
+55 silly mapToRegistry registry https://registry.npmjs.org/
+56 silly mapToRegistry data Result {
+56 silly mapToRegistry   raw: 'angular-messages',
+56 silly mapToRegistry   scope: null,
+56 silly mapToRegistry   name: 'angular-messages',
+56 silly mapToRegistry   rawSpec: '',
+56 silly mapToRegistry   spec: 'latest',
+56 silly mapToRegistry   type: 'tag' }
+57 silly mapToRegistry uri https://registry.npmjs.org/angular-messages
+58 verbose addRemoteTarball https://registry.npmjs.org/angular-messages/-/angular-messages-1.5.8.tgz not in flight; adding
+59 verbose addRemoteTarball [ 'https://registry.npmjs.org/angular-messages/-/angular-messages-1.5.8.tgz',
+59 verbose addRemoteTarball   '1f91d1e7f3f4f2e5ab5adefee2c9a7196b1a34cf' ]
+60 info retry fetch attempt 1 at 18:15:55
+61 info attempt registry request try #1 at 18:15:55
+62 http fetch GET https://registry.npmjs.org/angular-messages/-/angular-messages-1.5.8.tgz
+63 http fetch 200 https://registry.npmjs.org/angular-messages/-/angular-messages-1.5.8.tgz
+64 silly fetchAndShaCheck shasum 1f91d1e7f3f4f2e5ab5adefee2c9a7196b1a34cf
+65 verbose addTmpTarball C:\Users\MANUEL~1\AppData\Local\Temp\npm-4388-67985b3f\registry.npmjs.org\angular-messages\-\angular-messages-1.5.8.tgz not in flight; adding
+66 verbose addTmpTarball already have metadata; skipping unpack for angular-messages@1.5.8
+67 verbose correctMkdir C:\Users\Manuel Ochoa Loaiza\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+68 silly cache afterAdd angular-messages@1.5.8
+69 verbose afterAdd C:\Users\Manuel Ochoa Loaiza\AppData\Roaming\npm-cache\angular-messages\1.5.8\package\package.json not in flight; writing
+70 verbose correctMkdir C:\Users\Manuel Ochoa Loaiza\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+71 verbose afterAdd C:\Users\Manuel Ochoa Loaiza\AppData\Roaming\npm-cache\angular-messages\1.5.8\package\package.json written
+72 silly install resolved [ { name: 'angular-messages',
+72 silly install resolved     version: '1.5.8',
+72 silly install resolved     description: 'AngularJS module that provides enhanced support for displaying messages within templates',
+72 silly install resolved     main: 'index.js',
+72 silly install resolved     scripts: { test: 'echo "Error: no test specified" && exit 1' },
+72 silly install resolved     repository:
+72 silly install resolved      { type: 'git',
+72 silly install resolved        url: 'git+https://github.com/angular/angular.js.git' },
+72 silly install resolved     keywords: [ 'angular', 'framework', 'browser', 'client-side' ],
+72 silly install resolved     author:
+72 silly install resolved      { name: 'Angular Core Team',
+72 silly install resolved        email: 'angular-core+npm@google.com' },
+72 silly install resolved     license: 'MIT',
+72 silly install resolved     bugs: { url: 'https://github.com/angular/angular.js/issues' },
+72 silly install resolved     homepage: 'http://angularjs.org',
+72 silly install resolved     jspm: { shim: [Object] },
+72 silly install resolved     gitHead: '55b1706ce1fbedf88dc9a98f5e0cd01d00110178',
+72 silly install resolved     _id: 'angular-messages@1.5.8',
+72 silly install resolved     _shasum: '1f91d1e7f3f4f2e5ab5adefee2c9a7196b1a34cf',
+72 silly install resolved     _from: 'angular-messages@latest',
+72 silly install resolved     _npmVersion: '2.15.8',
+72 silly install resolved     _nodeVersion: '4.4.7',
+72 silly install resolved     _npmUser: { name: 'angularcore', email: 'angular-core+npm@google.com' },
+72 silly install resolved     dist:
+72 silly install resolved      { shasum: '1f91d1e7f3f4f2e5ab5adefee2c9a7196b1a34cf',
+72 silly install resolved        tarball: 'https://registry.npmjs.org/angular-messages/-/angular-messages-1.5.8.tgz' },
+72 silly install resolved     maintainers: [ [Object], [Object] ],
+72 silly install resolved     _npmOperationalInternal:
+72 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+72 silly install resolved        tmp: 'tmp/angular-messages-1.5.8.tgz_1469201456584_0.13835237524472177' },
+72 silly install resolved     directories: {},
+72 silly install resolved     _resolved: 'https://registry.npmjs.org/angular-messages/-/angular-messages-1.5.8.tgz' } ]
+73 info install angular-messages@1.5.8 into C:\Integrador\pruebaTecnica
+74 info installOne angular-messages@1.5.8
+75 verbose installOne of angular-messages to C:\Integrador\pruebaTecnica not in flight; installing
+76 verbose correctMkdir C:\Users\Manuel Ochoa Loaiza\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+77 verbose lock using C:\Users\Manuel Ochoa Loaiza\AppData\Roaming\npm-cache\_locks\angular-messages-968393081f3ddaa9.lock for C:\Integrador\pruebaTecnica\node_modules\angular-messages
+78 silly install write writing angular-messages 1.5.8 to C:\Integrador\pruebaTecnica\node_modules\angular-messages
+79 verbose unbuild node_modules\angular-messages
+80 silly gentlyRm C:\Integrador\pruebaTecnica\node_modules\angular-messages is being purged from base C:\Integrador\pruebaTecnica
+81 verbose gentlyRm don't care about contents; nuking C:\Integrador\pruebaTecnica\node_modules\angular-messages
+82 verbose tar unpack C:\Users\Manuel Ochoa Loaiza\AppData\Roaming\npm-cache\angular-messages\1.5.8\package.tgz
+83 verbose tar unpacking to C:\Integrador\pruebaTecnica\node_modules\angular-messages
+84 silly gentlyRm C:\Integrador\pruebaTecnica\node_modules\angular-messages is being purged
+85 verbose gentlyRm don't care about contents; nuking C:\Integrador\pruebaTecnica\node_modules\angular-messages
+86 silly gunzTarPerm modes [ '777', '666' ]
+87 silly gunzTarPerm extractEntry package.json
+88 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+89 silly gunzTarPerm extractEntry README.md
+90 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+91 silly gunzTarPerm extractEntry angular-messages.js
+92 silly gunzTarPerm modified mode [ 'angular-messages.js', 420, 438 ]
+93 silly gunzTarPerm extractEntry angular-messages.min.js
+94 silly gunzTarPerm modified mode [ 'angular-messages.min.js', 420, 438 ]
+95 silly gunzTarPerm extractEntry index.js
+96 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+97 silly gunzTarPerm extractEntry LICENSE.md
+98 silly gunzTarPerm modified mode [ 'LICENSE.md', 420, 438 ]
+99 silly gunzTarPerm extractEntry angular-messages.min.js.map
+100 silly gunzTarPerm modified mode [ 'angular-messages.min.js.map', 420, 438 ]
+101 silly gunzTarPerm extractEntry bower.json
+102 silly gunzTarPerm modified mode [ 'bower.json', 420, 438 ]
+103 verbose write writing to C:\Integrador\pruebaTecnica\node_modules\angular-messages\package.json
+104 info preinstall angular-messages@1.5.8
+105 verbose readDependencies loading dependencies from C:\Integrador\pruebaTecnica\node_modules\angular-messages\package.json
+106 verbose readDependencies loading dependencies from C:\Integrador\pruebaTecnica\node_modules\angular-messages\package.json
+107 silly install resolved []
+108 verbose about to build C:\Integrador\pruebaTecnica\node_modules\angular-messages
+109 info build C:\Integrador\pruebaTecnica\node_modules\angular-messages
+110 info linkStuff angular-messages@1.5.8
+111 silly linkStuff angular-messages@1.5.8 has C:\Integrador\pruebaTecnica\node_modules as its parent node_modules
+112 verbose linkBins angular-messages@1.5.8
+113 verbose linkMans angular-messages@1.5.8
+114 verbose rebuildBundles angular-messages@1.5.8
+115 info install angular-messages@1.5.8
+116 info postinstall angular-messages@1.5.8
+117 verbose unlock done using C:\Users\Manuel Ochoa Loaiza\AppData\Roaming\npm-cache\_locks\angular-messages-968393081f3ddaa9.lock for C:\Integrador\pruebaTecnica\node_modules\angular-messages
+118 verbose validateInstall loading C:\Integrador\pruebaTecnica\package.json for validation
+119 verbose stack Error: The package rxjs@5.0.0-beta.12 does not satisfy its siblings' peerDependencies requirements!
+119 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:125:32
+119 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:268:7
+119 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:142:5
+119 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+119 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+119 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+119 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+119 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+119 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+119 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+120 verbose cwd C:\Integrador\pruebaTecnica
+121 error Windows_NT 6.2.9200
+122 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "angular-messages"
+123 error node v4.5.0
+124 error npm  v2.15.9
+125 error code EPEERINVALID
+126 error peerinvalid The package rxjs@5.0.0-beta.12 does not satisfy its siblings' peerDependencies requirements!
+126 error peerinvalid Peer @angular/core@2.0.0-rc.4 wants rxjs@5.0.0-beta.6
+126 error peerinvalid Peer @ionic/cloud-angular@0.4.0 wants rxjs@>=5.0.0-beta.0
+127 verbose exit [ 1, true ]
