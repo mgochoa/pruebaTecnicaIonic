@@ -1,6 +1,6 @@
 angular.module('app.controllers', [])
    .controller('formCtrl', function($scope,$cordovaCamera) {
-      document.addEventListener("deviceready", function () {
+    /*   document.addEventListener("deviceready", function () {
 
     var opciones = {
       quality: 50,
@@ -23,7 +23,15 @@ angular.module('app.controllers', [])
     });
 
   }, false);
-
+*/
+var cont=0;
+function writeUserData(userId, name, email, born) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    born: born
+  });
+}
 
 $scope.user={
   name:"",
@@ -58,5 +66,7 @@ $scope.options={
       
       alert("Hello "+$scope.user.name+"\n email:"+$scope.user.email+"\n Colombiano: "+ $scope.nacimiento.valor +
         "\n Departamento: "+ $scope.options.selectedOptionDep.name);
+      writeUserData(cont,$scope.user.name,$scope.user.email,$scope.nacimiento.valor);
+      cont++;
     }
 });
