@@ -36,6 +36,7 @@
     <!-- ionic/angularjs js -->
 
     <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
     <script src="lib/ionic.cloud.min.js"></script>
     <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
@@ -72,23 +73,54 @@
 
   <label class="item item-input item-floating-label">
     <span class="input-label">Nombre y Apellidos</span>
-    <input type="text" placeholder="Nombre y Apellidos" ng-model="username" ng-minlength="5" required/>
+    <input type="text" placeholder="Nombre y Apellidos" ng-model="user.name" ng-minlength="5" required/>
   </label>
   
   <label class="item item-input item-floating-label">
     <span class="input-label">Email</span>
-    <input type="email" placeholder="Email" ng-model="useremail" ng-minlength="5" required/>
+    <input type="email" placeholder="Email" ng-model="user.email" ng-minlength="5" required/>
   </label>
 </div>
-  <div ng-init="isChecked = flase">
- <ion-checkbox ng-model="isChecked">¿Naciste en Colombia?</ion-checkbox>
-  <div class="content-area sample-show-hide" ng-show="isChecked">
-    Content...
+  <div ng-init="isChecked = false">
+ <ion-checkbox ng-model="nacimiento.valor">¿Naciste en Colombia?</ion-checkbox>
+  <div class="content-area sample-show-hide" ng-show="nacimiento.valor"">
+    <div class="list">
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Departamento
+    </div>
+    <select name="mySelect" id="mySelect"
+      ng-options="option.name for option in options.availableOptions track by option.id"
+      ng-model="options.selectedOptionDep"></select>
+  </label>
+
+</div>
+ <div class="list">
+
+  <label ng-if="options.selectedOptionDep.id == 1" class="item item-input item-select">
+    <div class="input-label">
+      Ciudad
+    </div>
+    <select name="selectAntioquia" id="selectAntioquia"
+      ng-options="ciudad.name for ciudad in options.availabeCitiesAntioquia track by ciudad.id"
+      ng-model="options.selectedOptionCityAnt"></select>
+  </label>
+  <label ng-if="options.selectedOptionDep.id == 2"  class="item item-input item-select">
+    <div class="input-label">
+      Ciudad
+    </div>
+    <select name="selectCundi" id="selectCundi"
+      ng-options="ciudad.name for ciudad in options.availabeCitiesCundiamarca track by ciudad.id"
+      ng-model="options.selectedOptionCityCund"></select>
+  </label>
+
+</div>
   </div>
 </div>
 
 </div>
-        <button class="button button-full button-raised button-assertive icon ion-checkmark-round ink-dark" ng-disabled="myForm.$invalid" ng-click="submit(username)" >Enviar</button>
+        <button class="button button-full button-raised button-assertive icon ion-checkmark-round ink-dark" ng-disabled="myForm.$invalid" ng-click="submit()" >Enviar</button>
 </form>
 
     </ion-content>
