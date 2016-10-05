@@ -1,8 +1,9 @@
 angular.module('app.controllers', [])
-    .controller('formCtrl', function($scope, $cordovaCamera) {
+    .controller('formCtrl', function($scope, $cordovaCamera, $cordovaImagePicker, $cordovaFile, $cordovaGeolocation, $ionicPopup, $ionicModal, $timeout, $ionicLoading) {
 
         //Inicializar variables
-        $scope.forma=document.getElementById('myForm');
+        $scope.forma = document.getElementById('myForm');
+        var newPostKey;
         $scope.myimage = {
             src: "img/people.jpg",
             file: null,
@@ -26,23 +27,18 @@ angular.module('app.controllers', [])
             ],
             selectedOptionDep: { id: '1', name: 'Antioquia' },
             availabeCitiesAntioquia: [
-                { id: '1', name: 'Medellin' },
+                { id: '1', name: 'Medellín' },
                 { id: '2', name: 'Envigado' },
-                { id: '3', name: 'Itagui' },
+                { id: '3', name: 'Itagüí' },
                 { id: '4', name: 'Sabaneta' },
-                { id: '5', name: 'Estrella' },
-                { id: '6', name: 'La ceja' },
-                { id: '7', name: 'Rionegro' },
-                { id: '8', name: 'Santa Fe de Antioquia' },
-                { id: '9', name: 'Marinilla' }
+                { id: '5', name: 'Estrella' }
             ],
             availabeCitiesCundiamarca: [
                 { id: '1', name: 'Bogota DC' },
                 { id: '2', name: 'Fontibon' },
                 { id: '3', name: 'Suba' },
                 { id: '4', name: 'Zipaquira' },
-                { id: '5', name: 'Girardot' },
-                { id: '6', name: 'Soacha' }
+                { id: '5', name: 'Girardot' }
             ],
             selectedOptionCityAnt: { id: '1', name: 'Medellin' },
             selectedOptionCityCund: { id: '1', name: 'Bogota DC' }
@@ -52,8 +48,13 @@ angular.module('app.controllers', [])
         var storageRef;
         var imagesRef;
         var opciones;
+        var optionsPicker;
         var downloadURL;
+
         document.addEventListener("deviceready", function() {
+
+
+
             opciones = {
                 quality: 75,
                 destinationType: Camera.DestinationType.DATA_URL,
@@ -66,13 +67,24 @@ angular.module('app.controllers', [])
                 saveToPhotoAlbum: false,
                 correctOrientation: true
             };
+            optionsPicker = {
+                quality: 75,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+
+
+                targetWidth: 512,
+                targetHeight: 512
+
+
+            };
             storage = firebase.storage();
             storageRef = storage.ref();
             imagesRef = storageRef.child('images');
 
         }, false);
 
-
+        initLocation();
         $scope.deletePhoto = function() {
             $scope.myimage.state = false;
             $scope.myimage.src = "img/people.jpg";
@@ -81,6 +93,7 @@ angular.module('app.controllers', [])
         };
 
         $scope.takePic = function() {
+
             $cordovaCamera.getPicture(opciones).then(function(imageData) {
                 //var image = document.getElementById('myImage');
                 $scope.myimage.file = b64toBlob(imageData, 'image/jpeg');;
@@ -92,10 +105,22 @@ angular.module('app.controllers', [])
 
 
         };
+        $scope.pickImage = function() {
+            // Image picker will load images according to these settings
+
+            $cordovaCamera.getPicture(optionsPicker).then(function(imageData) {
+                //var image = document.getElementById('myImage');
+                $scope.myimage.file = b64toBlob(imageData, 'image/jpeg');;
+                $scope.myimage.state = true;
+                $scope.myimage.src = "data:image/jpeg;base64," + imageData;
+            }, function(err) {
+                // error
+            });
+        };
 
 
         function writeUserData(user, born, country, city, image) {
-            var newPostKey = firebase.database().ref().child('users').push().key;
+            newPostKey = firebase.database().ref().child('users').push().key;
             var request = {
                 username: user.name,
                 email: user.email,
@@ -114,7 +139,7 @@ angular.module('app.controllers', [])
             firebase.database().ref('users/' + newPostKey).set(request);
 
             if (image.state == true) {
-                var uploadTask = storageRef.child('images/' + newPostKey + '.jpg').put(image.file, metadata);
+                var uploadTask = storageRef.child("images/profile.jpg").put(image.file, metadata);
                 //alert("Imagen:" + image);
                 uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
                     function(snapshot) {
@@ -156,7 +181,7 @@ angular.module('app.controllers', [])
             } else {
 
                 //Alerta no hay imagen.
-                alert("No hay imagen");
+
             }
 
 
@@ -166,31 +191,141 @@ angular.module('app.controllers', [])
 
 
 
-
         $scope.submit = function() {
-           
 
 
-                alert("Hello " + $scope.user.name + "\n email:" + $scope.user.email + "\n Colombiano: " + $scope.nacimiento.valor +
-                    "\n Departamento: " + $scope.options.selectedOptionDep.name);
-                if ($scope.options.selectedOptionDep.id == 1) {
-                    writeUserData($scope.user,
-                        $scope.nacimiento.valor,
-                        $scope.options.selectedOptionDep.name,
-                        $scope.options.selectedOptionCityAnt.name,
-                        $scope.myimage
-                    );
-                } else {
-                    writeUserData($scope.user,
-                        $scope.nacimiento.valor,
-                        $scope.options.selectedOptionDep.name,
-                        $scope.options.selectedOptionCityCund.name,
-                        $scope.myimage
-                    );
 
+            // alert("Hello " + $scope.user.name + "\n email:" + $scope.user.email + "\n Colombiano: " + $scope.nacimiento.valor +
+            //"\n Departamento: " + $scope.options.selectedOptionDep.name);
+
+            $ionicLoading.show({
+                template: 'Loading...'
+            }).then(function() {
+                console.log("The loading indicator is now displayed");
+            });
+
+
+
+
+            if ($scope.options.selectedOptionDep.id == 1) {
+                writeUserData($scope.user,
+                    $scope.nacimiento.valor,
+                    $scope.options.selectedOptionDep.name,
+                    $scope.options.selectedOptionCityAnt.name,
+                    $scope.myimage
+                );
+            } else {
+                writeUserData($scope.user,
+                    $scope.nacimiento.valor,
+                    $scope.options.selectedOptionDep.name,
+                    $scope.options.selectedOptionCityCund.name,
+                    $scope.myimage
+                );
+
+            }
+            firebase.database().ref('users/' + newPostKey).on('value', function(snapshot) {
+                $scope.u = snapshot.val();
+                $scope.uimage = "";
+                console.log($scope.u.image);
+
+                if ($scope.u.image) {
+                    firebase.storage().ref("images/profile.jpg").getDownloadURL().then(function(url) {
+                        // Get the download URL for 'images/stars.jpg'
+                        // This can be inserted into an <img> tag
+                        // This can also be downloaded directly
+                        console.log(url);
+                        $scope.uimage = url;
+                    }).catch(function(error) {
+                        // Handle any errors
+                    });
                 }
-            
+
+            });
+            $ionicLoading.hide().then(function() {
+                console.log("The loading indicator is now hidden");
+            });
+            $ionicModal.fromTemplateUrl('my-modal.html', {
+                scope: $scope,
+                animation: 'slide-in-up'
+            }).then(function(modal) {
+                $scope.modal = modal;
+            });
+            $timeout(function() {
+                $scope.modal.show();
+            }, 0)
+
         };
+
+        function initLocation() {
+
+            var posOptions = { timeout: 10000, enableHighAccuracy: false };
+            $cordovaGeolocation
+                .getCurrentPosition(posOptions)
+                .then(function(position) {
+                    var lat = position.coords.latitude
+                    var long = position.coords.longitude
+
+                    var geocoder = new google.maps.Geocoder;
+                    geocoder.geocode({ 'location': { lat: lat, lng: long } }, function(results, status) {
+                        if (status === google.maps.GeocoderStatus.OK) {
+                            if (results[1]) {
+                                console.log(results[1].formatted_address);
+                                var ciudad = document.getElementById('cuerpo');
+                                if (results[1].formatted_address.includes("Medellín")) {
+                                    var alertPopup = $ionicPopup.alert({
+                                        title: 'Ubicación',
+                                        template: 'Usted está en Medellín'
+                                    });
+
+                                    alertPopup.then(function(res) {
+                                        ciudad.style.backgroundColor = "#4CAF50";
+                                    });
+
+
+
+                                } else if (results[1].formatted_address.includes("Envigado")) {
+
+                                    var alertPopup = $ionicPopup.alert({
+                                        title: 'Ubicación',
+                                        template: 'Usted está en Envigado'
+                                    });
+
+                                    alertPopup.then(function(res) {
+                                        ciudad.style.backgroundColor = "#CDDC39";
+                                    });
+
+
+
+
+                                } else {
+                                    var alertPopup = $ionicPopup.alert({
+                                        title: 'Ubicación',
+                                        template: results[1].formatted_address
+                                    });
+
+                                    alertPopup.then(function(res) {
+
+                                    });
+
+                                }
+
+                            } else {
+                                alert('No results found');
+                            }
+                        } else {
+                            alert('Geocoder failed due to: ' + status);
+                        }
+                    });
+                }, function(err) {
+                    // error
+                });
+
+            // handle event
+            //console.log("State Params: ", data.stateParams);
+        };
+
+
+
 
         function b64toBlob(b64Data, contentType, sliceSize) {
             contentType = contentType || '';
@@ -210,11 +345,12 @@ angular.module('app.controllers', [])
                 var byteArray = new Uint8Array(byteNumbers);
 
                 byteArrays.push(byteArray);
-            }
+            };
 
             var blob = new Blob(byteArrays, { type: contentType });
             return blob;
         };
+
 
 
         //Fin
